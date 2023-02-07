@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchReviewById } from "../utils/api";
+import Comments from "./Comments";
 
 export default function SingleReview() {
   const { review_id } = useParams();
@@ -29,7 +30,6 @@ export default function SingleReview() {
         />
       </section>
       <section className="single-review-body">
-        {/* <h2>Review:</h2> */}
         <p>{review.review_body}</p>
         <section className="single-review-posted-container">
           <h2 className="single-review-posted">Posted by:&nbsp;</h2>
@@ -47,6 +47,9 @@ export default function SingleReview() {
           <h2 className="single-review-date">Posted on:&nbsp;</h2>
           <p className="single-review-date"> {review.created_at}</p>
         </section>
+      </section>
+      <section className="comments">
+        <Comments review_id={review_id} />
       </section>
     </main>
   );

@@ -32,9 +32,10 @@
 
 /* SingleReview */
 .single-review {
-  display: flex;
-  flex-direction: row;
-  align-content: stretch;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr; */
+  margin: 1vw;
 }
 
 .single-review-img-title {
@@ -43,6 +44,7 @@
   margin-top: 5px;
   margin-left: 30px;
   margin-right: 3vw;
+  grid-column-start: 1;
   /* width: 40vw; */
   /* border: 2px solid black; */
 }
@@ -59,7 +61,9 @@
   padding-top: 20px;
   margin-right: 30px;
   margin-left: 5px;
-  width: 60vw;
+  grid-column-start: 2;
+  width: 50vw;
+  height: auto;
 }
 
 .single-review-posted-container {
@@ -96,4 +100,58 @@
 .single-review-date {
   display: inline-block;
   font-size: 17px;
+}
+
+.comments {
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 1;
+}
+
+/* Comments */
+.comment-line {
+  width: 95vw;
+  margin: 20px;
+}
+
+.comment-title {
+  text-align: left;
+  margin-left: 2vw;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  color: gray;
+}
+
+.comment-list {
+  list-style: none;
+  margin: 1vw;
+}
+
+.user-avatar {
+  width: 75px;
+  height: 75px;
+  float: left;
+  margin: 10px;
+  border-radius: 50%;
+  border: 1px solid grey;
+}
+
+.single-comment-container {
+  margin-top: 2vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.single-comment-header {
+  display: inline;
+}
+
+.single-comment-text {
+  text-align: left;
+  margin: 1vw;
+}
+
+#single-comment-date {
+  color: grey;
+  font-size: 14px;
 }

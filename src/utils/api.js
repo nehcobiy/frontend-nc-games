@@ -15,3 +15,21 @@ export const fetchReviewById = (id) => {
     return review;
   });
 };
+
+export const fetchCommentsByReviewId = (id) => {
+  return request(`/reviews/${id}/comments`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const fetchUsers = () => {
+  return request("/users").then(({ data }) => {
+    return data;
+  });
+};
+
+export const fetchUsersAvatar = () => {
+  return request("/users").then(({ data: { avatar_url } }) => {
+    return avatar_url;
+  });
+};
