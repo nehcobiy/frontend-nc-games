@@ -6,6 +6,7 @@ import { fetchUsers } from "../utils/api";
 export default function Comments({ review_id }) {
   const [comments, setComments] = useState([]);
   console.log(comments);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([fetchCommentsByReviewId(review_id), fetchUsers()]).then(
@@ -15,9 +16,18 @@ export default function Comments({ review_id }) {
           res.avatar = avatarRef[res.author];
         });
         setComments(result[0]);
+        setIsLoading(false);
       }
     );
   }, []);
+  if (isLoading) {
+    return (
+      <section>
+        <hr className="comment-line" />
+        <h1>Loading...</h1>
+      </section>
+    );
+  }
   if (comments.msg === "no comments exist for this id") {
     return (
       <section>
