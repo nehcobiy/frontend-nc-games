@@ -7,6 +7,7 @@
   border: 2px solid black;
 }
 
+/* Review */
 .Reviews_list {
   list-style: none;
   display: flex;
@@ -24,17 +25,19 @@
   height: 350px;
 }
 
-.SingleReview {
-  display: flex;
-  flex-direction: row;
-  align-content: stretch;
-}
 .Review_img {
   width: 300px;
   height: 200px;
 }
 
-.SingleReview_img_title {
+/* SingleReview */
+.single-review {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+}
+
+.single-review-img-title {
   text-align: left;
   float: left;
   margin-top: 5px;
@@ -44,11 +47,11 @@
   /* border: 2px solid black; */
 }
 
-.SingleReview_img {
+.single-review-img {
   width: 40vw;
 }
 
-.SingleReview_body {
+.single-review-body {
   text-align: left;
   float: right;
   /* border: 2px solid black; */
@@ -57,41 +60,40 @@
   margin-right: 30px;
   margin-left: 5px;
   width: 60vw;
-  flex-basis: auto;
 }
 
-.SingleReview_posted_container {
+.single-review-posted-container {
   white-space: nowrap;
 }
 
-.SingleReview_posted {
+.single-review-posted {
   display: inline-block;
   font-size: 17px;
 }
 
-.SingleReview_designer_container {
+.single-review-designer-container {
   white-space: nowrap;
 }
 
-.SingleReview_designer {
+.single-review-designer {
   display: inline-block;
   font-size: 17px;
 }
 
-.SingleReview_category_container {
+.single-review-category-container {
   white-space: nowrap;
 }
 
-.SingleReview_category {
+.single-review-category {
   display: inline-block;
   font-size: 17px;
 }
 
-.SingleReview_date_container {
+.single-review-date-container {
   white-space: nowrap;
 }
 
-.SingleReview_date {
+.single-review-date {
   display: inline-block;
   font-size: 17px;
 }

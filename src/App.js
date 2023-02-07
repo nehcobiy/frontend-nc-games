@@ -7,7 +7,7 @@ import SingleReview from "./components/SingleReview";
 function App() {
   return (
     <div className="App">
-      <h1 className="Title">NC Games Reviews</h1>
+      <h1 className="title">NC Games Reviews</h1>
       <Nav />
 
       <Routes>

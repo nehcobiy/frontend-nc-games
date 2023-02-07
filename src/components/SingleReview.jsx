@@ -19,33 +19,33 @@ export default function SingleReview() {
     return <h2>Loading...</h2>;
   }
   return (
-    <main className="SingleReview">
-      <section className="SingleReview_img_title">
-        <h1 clasName="SingleReview_title">{review.title}</h1>{" "}
+    <main className="single-review">
+      <section className="single-review-img-title">
+        <h1 className="single-review_title">{review.title}</h1>{" "}
         <img
           src={review.review_img_url}
           alt="related to game"
-          className="SingleReview_img"
+          className="single-review-img"
         />
       </section>
-      <section className="SingleReview_body">
+      <section className="single-review-body">
         {/* <h2>Review:</h2> */}
         <p>{review.review_body}</p>
-        <section className="SingleReview_posted_container">
-          <h2 className="SingleReview_posted">Posted by:&nbsp;</h2>
-          <p className="SingleReview_posted"> {review.owner}</p>
+        <section className="single-review-posted-container">
+          <h2 className="single-review-posted">Posted by:&nbsp;</h2>
+          <p className="single-review-posted"> {review.owner}</p>
         </section>
-        <section className="SingleReview_designer_container">
-          <h2 className="SingleReview_designer">Designed by:&nbsp;</h2>
-          <p className="SingleReview_designer"> {review.designer}</p>
+        <section className="single-review-designer-container">
+          <h2 className="single-review-designer">Designed by:&nbsp;</h2>
+          <p className="single-review-designer"> {review.designer}</p>
         </section>
-        <section className="SingleReview_category_container">
-          <h2 className="SingleReview_category">Category:&nbsp;</h2>
-          <p className="SingleReview_category"> {review.category}</p>
+        <section className="single-review-category-container">
+          <h2 className="single-review-category">Category:&nbsp;</h2>
+          <p className="single-review-category"> {review.category}</p>
         </section>
-        <section className="SingleReview_date_container">
-          <h2 className="SingleReview_date">Posted on:&nbsp;</h2>
-          <p className="SingleReview_date"> {review.created_at}</p>
+        <section className="single-review-date-containerr">
+          <h2 className="single-review-date">Posted on:&nbsp;</h2>
+          <p className="single-review-date"> {review.created_at}</p>
         </section>
       </section>
     </main>
