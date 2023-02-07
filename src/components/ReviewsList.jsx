@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function ReviewsList() {
   const [reviews, setReviews] = useState([{}]);
   const [isLoading, setIsLoading] = useState(true);
-  console.log(reviews);
+  //   console.log(reviews);
 
   useEffect(() => {
     fetchReviews().then((fetchedReviews) => {
@@ -25,7 +25,7 @@ export default function ReviewsList() {
           return (
             <li key={review.review_id}>
               <ul className="Review">
-                <li>
+                <li className="Review_list">
                   <p>
                     <Link
                       className="Review_title"
@@ -34,12 +34,13 @@ export default function ReviewsList() {
                       {review.title}
                     </Link>
                   </p>
-
                   <img
                     className="Review_img"
                     src={`${review.review_img_url}`}
                     alt={`${review.title}`}
                   />
+                  <p>Date posted: {review.created_at}</p>
+                  <p>Comments: {review.comment_count}</p>
                 </li>
               </ul>
             </li>
