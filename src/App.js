@@ -2,6 +2,7 @@ import "./App.css";
 import Nav from "./components/Nav";
 import ReviewsList from "./components/ReviewsList";
 import { Routes, Route } from "react-router-dom";
+import SingleReview from "./components/SingleReview";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
 
       <Routes>
         <Route path="/reviews" element={<ReviewsList />}></Route>
+        <Route path="/reviews/:review_id" element={<SingleReview />}></Route>
       </Routes>
     </div>
   );

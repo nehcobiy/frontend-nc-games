@@ -19,11 +19,79 @@
   padding: 10px;
   border: 2px solid black;
   margin: 10px;
-  width: 400px;
-  height: 280px;
+  text-align: left;
+  width: 300px;
+  height: 350px;
 }
 
+.SingleReview {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+}
 .Review_img {
   width: 300px;
   height: 200px;
+}
+
+.SingleReview_img_title {
+  text-align: left;
+  float: left;
+  margin-top: 5px;
+  margin-left: 30px;
+  margin-right: 3vw;
+  /* width: 40vw; */
+  /* border: 2px solid black; */
+}
+
+.SingleReview_img {
+  width: 40vw;
+}
+
+.SingleReview_body {
+  text-align: left;
+  float: right;
+  /* border: 2px solid black; */
+  margin-top: 50px;
+  padding-top: 20px;
+  margin-right: 30px;
+  margin-left: 5px;
+  width: 60vw;
+  flex-basis: auto;
+}
+
+.SingleReview_posted_container {
+  white-space: nowrap;
+}
+
+.SingleReview_posted {
+  display: inline-block;
+  font-size: 17px;
+}
+
+.SingleReview_designer_container {
+  white-space: nowrap;
+}
+
+.SingleReview_designer {
+  display: inline-block;
+  font-size: 17px;
+}
+
+.SingleReview_category_container {
+  white-space: nowrap;
+}
+
+.SingleReview_category {
+  display: inline-block;
+  font-size: 17px;
+}
+
+.SingleReview_date_container {
+  white-space: nowrap;
+}
+
+.SingleReview_date {
+  display: inline-block;
+  font-size: 17px;
 }
