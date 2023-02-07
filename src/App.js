@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import ReviewsList from "./components/ReviewsList";
 import { Routes, Route } from "react-router-dom";
 import SingleReview from "./components/SingleReview";
+import Comments from "./components/Comments";
 
 function App() {
   return (
