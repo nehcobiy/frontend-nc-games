@@ -41,6 +41,7 @@ export default function ReviewsList() {
                   />
                   <p>Date posted: {review.created_at}</p>
                   <p>Comments: {review.comment_count}</p>
+                  <p>Upvotes: {review.votes}</p>
                 </li>
               </ul>
             </li>

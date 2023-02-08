@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import { fetchCommentsByReviewId } from "../utils/api";
 import { matchUserImgs } from "../utils/user";
 import { fetchUsers } from "../utils/api";
+import { FaThumbsUp } from "react-icons/fa";
 
 export default function Comments({ review_id }) {
   const [comments, setComments] = useState([]);
-  console.log(comments);
+  //   console.log(comments);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -65,7 +66,17 @@ export default function Comments({ review_id }) {
                       ${comment.created_at.slice(11, 16)}`}
                       </p>
                     </h3>
-                    <p className="single-comment-body">{comment.body}</p>
+                    <section className="single-comment-body-container">
+                      <p className="single-comment-body">
+                        {comment.body} &nbsp;
+                        <span
+                          className="single-comment-body"
+                          id="comment-thumb"
+                        >
+                          {comment.votes} <FaThumbsUp />
+                        </span>
+                      </p>
+                    </section>
                   </section>
                 </section>
               </li>

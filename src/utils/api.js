@@ -28,8 +28,9 @@ export const fetchUsers = () => {
   });
 };
 
-export const fetchUsersAvatar = () => {
-  return request("/users").then(({ data: { avatar_url } }) => {
-    return avatar_url;
+export const patchReviewVotes = (id, vote) => {
+  const patchBody = { inc_votes: vote };
+  return request.patch(`/reviews/${id}`, patchBody).then(({ data }) => {
+    console.log(data);
   });
 };
