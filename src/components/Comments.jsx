@@ -3,23 +3,27 @@ import { fetchCommentsByReviewId } from "../utils/api";
 import { matchUserImgs } from "../utils/user";
 import { fetchUsers } from "../utils/api";
 import { FaThumbsUp } from "react-icons/fa";
+import NewComment from "./NewComment";
 
 export default function Comments({ review_id }) {
   const [comments, setComments] = useState([]);
-  //   console.log(comments);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    Promise.all([fetchCommentsByReviewId(review_id), fetchUsers()]).then(
-      (result) => {
-        const avatarRef = matchUserImgs(result[0], result[1]);
+    Promise.all([fetchCommentsByReviewId(review_id), fetchUsers()])
+      .then((result) => {
+        const avatarRef = matchUserImgs(result[1]);
         result[0].forEach((res) => {
           res.avatar = avatarRef[res.author];
         });
         setComments(result[0]);
         setIsLoading(false);
-      }
-    );
+      })
+      .catch((err) => {
+        setError(err);
+        setIsLoading(false);
+      });
   }, []);
   if (isLoading) {
     return (
@@ -29,11 +33,12 @@ export default function Comments({ review_id }) {
       </section>
     );
   }
-  if (comments.msg === "no comments exist for this id") {
+  if (error) {
     return (
       <section>
         <hr className="comment-line" />
         <h1 className="comment-title">0 Comments</h1>
+        <NewComment comments={comments} setComments={setComments} />
       </section>
     );
   } else
@@ -41,6 +46,7 @@ export default function Comments({ review_id }) {
       <section>
         <hr className="comment-line" />
         <h1 className="comment-title">{comments.length} Comments</h1>
+        <NewComment comments={comments} setComments={setComments} />
         <ul className="comment-list">
           {comments.map((comment) => {
             return (
@@ -67,15 +73,11 @@ export default function Comments({ review_id }) {
                       </p>
                     </h3>
                     <section className="single-comment-body-container">
-                      <p className="single-comment-body">
-                        {comment.body} &nbsp;
-                        <span
-                          className="single-comment-body"
-                          id="comment-thumb"
-                        >
-                          {comment.votes} <FaThumbsUp />
-                        </span>
-                      </p>
+                      <p className="single-comment-body" id="h"></p>
+                      {comment.body} &nbsp;
+                      <span className="single-comment-body" id="comment-thumb">
+                        {comment.votes} <FaThumbsUp />
+                      </span>
                     </section>
                   </section>
                 </section>

@@ -1,10 +1,44 @@
+/* App */
 .App {
   text-align: center;
+  border: 2px dotted red;
+  margin: 0;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  background-color: rgb(175, 174, 174);
+  height: auto;
+  padding: 3vh;
+}
+
+.title {
+  text-align: left;
+  margin: 0;
+  padding: 2vh;
+
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Nav */
+.Nav {
+  display: flex;
 }
 
 .Nav_link {
   padding: 10px;
-  border: 2px solid black;
+  border: 3px solid white;
+  border-radius: 10%;
+  margin: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  background-color: rgb(212, 210, 210);
+  text-decoration: none;
+  color: rgb(87, 87, 87);
 }
 
 /* Review */
@@ -141,8 +175,8 @@
 }
 
 .user-avatar {
-  width: 75px;
-  height: 75px;
+  width: 80px;
+  height: 80px;
   float: left;
   margin: 10px;
   border-radius: 50%;
@@ -150,7 +184,7 @@
 }
 
 .single-comment-container {
-  margin-top: 2vw;
+  margin-top: 1vw;
   display: flex;
   flex-direction: column;
 }
@@ -169,12 +203,9 @@
   font-size: 14px;
 }
 
-.single-comment-body-container {
-  white-space: nowrap;
-}
-
 .single-comment-body {
-  display: inline;
+  display: inline-block;
+  flex-direction: column;
 }
 
 #comment-thumb {
@@ -185,4 +216,38 @@
   padding-top: 2px;
   padding-bottom: 2px;
   border-radius: 3px;
+}
+
+/* NewComment */
+
+.new-comment {
+  display: flex;
+  margin: 1vw;
+}
+
+.user-profile {
+  width: 75px;
+  height: 75px;
+  margin: 10px;
+  border-radius: 50%;
+  border: 1px solid grey;
+}
+
+#comment-box {
+  margin: 1vw;
+  width: 20vw;
+}
+
+#submit-comment {
+  margin: 1vw;
+  height: 25px;
+}
+
+#successful-comment {
+  margin: 1vw;
+  font-weight: bold;
+}
+
+#tick {
+  margin-left: 10px;
 }

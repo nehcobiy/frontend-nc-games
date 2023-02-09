@@ -10,7 +10,7 @@ export default function SingleReview() {
   const [review, setReview] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [voteChange, setVoteChange] = useState(0);
-  console.log(review);
+  // console.log(review);
 
   useEffect(() => {
     fetchReviewById(review_id).then((fetchedReview) => {
@@ -19,7 +19,6 @@ export default function SingleReview() {
     });
   }, []);
 
-  console.log(voteChange);
   const upVote = () => {
     const updatedReview = { ...review };
     updatedReview.votes++;
