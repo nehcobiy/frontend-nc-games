@@ -34,3 +34,13 @@ export const patchReviewVotes = (id, vote) => {
     console.log(data);
   });
 };
+
+export const postComment = (id, newComment) => {
+  const postBody = {
+    username: "tickle122",
+    body: newComment,
+  };
+  return request.post(`/reviews/${id}/comments`, postBody).then(({ data }) => {
+    return data;
+  });
+};
