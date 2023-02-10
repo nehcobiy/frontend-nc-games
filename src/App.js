@@ -3,7 +3,8 @@ import Nav from "./components/Nav";
 import ReviewsList from "./components/ReviewsList";
 import { Routes, Route } from "react-router-dom";
 import SingleReview from "./components/SingleReview";
-
+import Categories from "./components/Categories";
+import { ReviewsByCategory } from "./components/ReviewsByCategory";
 function App() {
   return (
     <div className="App">
@@ -13,8 +14,13 @@ function App() {
       </section>
 
       <Routes>
-        <Route path="/reviews" element={<ReviewsList />}></Route>
+        <Route path="/" element={<ReviewsList />}></Route>
         <Route path="/reviews/:review_id" element={<SingleReview />}></Route>
+        <Route path="/categories" element={<Categories />}></Route>
+        <Route
+          path="/:category/reviews"
+          element={<ReviewsByCategory />}
+        ></Route>
       </Routes>
     </div>
   );

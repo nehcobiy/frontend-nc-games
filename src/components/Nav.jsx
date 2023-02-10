@@ -6,9 +6,6 @@ export default function Nav() {
       <Link className="Nav_link" to="/">
         Home
       </Link>
-      <Link className="Nav_link" to="/reviews">
-        All Reviews
-      </Link>
       <Link className="Nav_link" to="/categories">
         Categories
       </Link>

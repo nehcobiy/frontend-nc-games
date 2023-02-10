@@ -10,17 +10,20 @@ export default function NewComment({ setComments }) {
   const { user } = useContext(UserContext);
   const [newComment, setNewComment] = useState("");
   const [posted, setPosted] = useState(false);
+  const [posting, setPosting] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setPosting(true);
     Promise.all([postComment(review_id, newComment), fetchUsers()])
       .then((result) => {
         const avatarRef = matchUserImgs(result[1]);
         result[0].avatar = avatarRef[result[0].author];
         setComments((currComments) => {
-          return [...currComments, result[0]];
+          return [result[0], ...currComments];
         });
         setPosted(true);
+        setPosting(false);
         return result[0];
       })
       .then(() => {
@@ -44,12 +47,18 @@ export default function NewComment({ setComments }) {
           setPosted(false);
         }}
       ></textarea>
-      <button id="submit-comment" disabled={posted === true}>
+      <button
+        id="submit-comment"
+        disabled={posted === true || posting === true}
+      >
         Submit
       </button>
       <p id="successful-comment" hidden={posted === false}>
         <TiTick id="tick" size={40} color="green" />
         Your comment was posted successfully!
+      </p>
+      <p id="comment-posting" hidden={posting === false}>
+        Your comment is posting...
       </p>
     </form>
   );
