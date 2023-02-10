@@ -44,3 +44,21 @@ export const postComment = (id, newComment) => {
     return data;
   });
 };
+
+export const fetchCategories = () => {
+  return request.get("/categories").then(({ data }) => {
+    const categories = [];
+    data.forEach((element) => {
+      categories.push(element.slug);
+    });
+    return categories;
+  });
+};
+
+export const fetchReviewsByCategory = (category) => {
+  return request
+    .get(`/reviews?category=${category}`)
+    .then(({ data: { reviews } }) => {
+      return reviews;
+    });
+};
