@@ -1,7 +1,7 @@
 import Reviews from "./Reviews";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { fetchReviews } from "../utils/api";
+import { fetchReviewsByCategory } from "../utils/api";
 
 export function ReviewsByCategory() {
   const { category } = useParams();
@@ -9,15 +9,10 @@ export function ReviewsByCategory() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchReviews().then((fetchedReviews) => {
-      const reviewsOfCategory = [];
-      fetchedReviews.forEach((fetchedReview) => {
-        if (fetchedReview.category === category) {
-          reviewsOfCategory.push(fetchedReview);
-        }
-        setReviewsByCategory(reviewsOfCategory);
-        setIsLoading(false);
-      });
+    fetchReviewsByCategory(category).then((fetchedReviews) => {
+      console.log(fetchedReviews);
+      setReviewsByCategory(fetchedReviews);
+      setIsLoading(false);
     });
   }, []);
 

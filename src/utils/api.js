@@ -54,3 +54,11 @@ export const fetchCategories = () => {
     return categories;
   });
 };
+
+export const fetchReviewsByCategory = (category) => {
+  return request
+    .get(`/reviews?category=${category}`)
+    .then(({ data: { reviews } }) => {
+      return reviews;
+    });
+};
