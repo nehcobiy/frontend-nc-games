@@ -4,8 +4,13 @@ const request = axios.create({
   baseURL: "https://nc-games-backend-project.onrender.com/api",
 });
 
-export const fetchReviews = () => {
-  return request("/reviews").then(({ data: { reviews } }) => {
+export const fetchReviews = (sortBy, order) => {
+  return request("/reviews", {
+    params: {
+      sort_by: sortBy,
+      order: order,
+    },
+  }).then(({ data: { reviews } }) => {
     return reviews;
   });
 };

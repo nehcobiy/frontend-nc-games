@@ -2,21 +2,27 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchReviewById } from "../utils/api";
 import Comments from "./Comments";
-import { FaThumbsDown, FaThumbsUp } from "react-icons/fa";
 import { patchReviewVotes } from "../utils/api";
+import { FaThumbsDown, FaThumbsUp } from "react-icons/fa";
+import { TfiFaceSad } from "react-icons/tfi";
 
 export default function SingleReview() {
   const { review_id } = useParams();
   const [review, setReview] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [voteChange, setVoteChange] = useState(0);
+  const [error, setError] = useState(null);
   // console.log(review);
 
   useEffect(() => {
-    fetchReviewById(review_id).then((fetchedReview) => {
-      setReview(fetchedReview);
-      setIsLoading(false);
-    });
+    fetchReviewById(review_id)
+      .then((fetchedReview) => {
+        setReview(fetchedReview);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+      });
   }, []);
 
   const upVote = () => {
@@ -41,13 +47,21 @@ export default function SingleReview() {
     });
   };
 
+  if (error) {
+    return (
+      <section className="error">
+        <p>404 - review not found</p>
+        <TfiFaceSad />
+      </section>
+    );
+  }
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
   return (
     <main className="single-review">
       <section className="single-review-img-title">
-        <h1 className="single-review_title">{review.title}</h1>{" "}
+        <h1 className="single-review_title">{review.title}</h1>
         <img
           src={review.review_img_url}
           alt="related to game"
