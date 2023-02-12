@@ -18,7 +18,7 @@ export default function Categories() {
   return (
     <section className="categories">
       <form className="categories-form">
-        <p className="categories-title">Select category:</p>
+        <h2 className="categories-title">Select category:</h2>
         <ul className="categories-list">
           {categories.map((category) => {
             return (
