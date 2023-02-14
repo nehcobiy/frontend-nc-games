@@ -51,12 +51,12 @@ export const postComment = (id, newComment) => {
 };
 
 export const fetchCategories = () => {
-  return request.get("/categories").then(({ data }) => {
-    const categories = [];
-    data.forEach((element) => {
-      categories.push(element.slug);
+  return request.get("/categories").then(({ data: { categories } }) => {
+    const categoriesArray = [];
+    categories.forEach((element) => {
+      categoriesArray.push(element.slug);
     });
-    return categories;
+    return categoriesArray;
   });
 };
 
