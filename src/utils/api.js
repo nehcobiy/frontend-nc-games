@@ -22,14 +22,14 @@ export const fetchReviewById = (id) => {
 };
 
 export const fetchCommentsByReviewId = (id) => {
-  return request(`/reviews/${id}/comments`).then(({ data }) => {
-    return data;
+  return request(`/reviews/${id}/comments`).then(({ data: { comments } }) => {
+    return comments;
   });
 };
 
 export const fetchUsers = () => {
-  return request("/users").then(({ data }) => {
-    return data;
+  return request("/users").then(({ data: { users } }) => {
+    return users;
   });
 };
 
@@ -66,4 +66,11 @@ export const fetchReviewsByCategory = (category) => {
     .then(({ data: { reviews } }) => {
       return reviews;
     });
+};
+
+export const deleteCommentByCommentId = (id) => {
+  const deleteBody = {
+    comment_id: id,
+  };
+  return request.delete(`/comments/${id}`, deleteBody);
 };

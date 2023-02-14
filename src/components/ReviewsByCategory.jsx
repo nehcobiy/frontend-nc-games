@@ -24,7 +24,7 @@ export function ReviewsByCategory() {
       <h2 className="header">
         <p>Category: {category}</p>
       </h2>
-      <Reviews reviews={reviewsByCategory} />;
+      <Reviews reviews={reviewsByCategory} />
     </section>
   );
 }

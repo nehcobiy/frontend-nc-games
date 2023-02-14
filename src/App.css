@@ -305,6 +305,10 @@ nav {
   border-radius: 3px;
 }
 
+.delete-comment {
+  margin: 10px;
+}
+
 /* NewComment */
 
 .new-comment {
