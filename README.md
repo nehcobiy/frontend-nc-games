@@ -1,6 +1,6 @@
 This is my Northcoders frontend project, built using React. This app, which consists of board games reviews is connected to my backend API project.
 
-Link to hosted version: [wwww.nc-games-fe-project.netlify.app/]()
+Link to hosted version: [https://nc-games-fe-project.netlify.app/]()
 
 Link to backend repo: [wwww.github.com/nehcobiy/backend-nc-games]()
 
