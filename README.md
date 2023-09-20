@@ -2,7 +2,7 @@ This is my Northcoders frontend project, built using React. This app, which cons
 
 Link to hosted version: [https://nc-games-fe-project.netlify.app/]()
 
-Link to backend repo: [wwww.github.com/nehcobiy/backend-nc-games]()
+Link to backend repo: [www.github.com/nehcobiy/backend-nc-games]()
 
 Link to hosted backend: [www.github.com/nehcobiy/backend-nc-games]()
 
